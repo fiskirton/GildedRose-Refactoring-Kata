@@ -1,16 +1,19 @@
-import { Item, GildedRose } from '../app/gilded-rose';
+import { GildedRose, ItemFactory, ItemType } from '../app/gilded-rose';
+
+const itemFactory: ItemFactory = new ItemFactory();
 
 const items = [
-    new Item("+5 Dexterity Vest", 10, 20), //
-    new Item("Aged Brie", 2, 0), //
-    new Item("Elixir of the Mongoose", 5, 7), //
-    new Item("Sulfuras, Hand of Ragnaros", 0, 80), //
-    new Item("Sulfuras, Hand of Ragnaros", -1, 80),
-    new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
-    new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
-    new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
+    itemFactory.createItem(ItemType.COMMON, "+5 Dexterity Vest", 10, 20), //
+    itemFactory.createItem(ItemType.PERISHABLE, "Aged Brie", 2, 0), //
+    itemFactory.createItem(ItemType.PERISHABLE, "Elixir of the Mongoose", 5, 7), //
+    itemFactory.createItem(ItemType.INDEFECTIBLE, "Sulfuras, Hand of Ragnaros", 0, 80), //
+    itemFactory.createItem(ItemType.INDEFECTIBLE, "Sulfuras, Hand of Ragnaros", -1, 80),
+    itemFactory.createItem(ItemType.PERISHABLE, "Backstage passes to a TAFKAL80ETC concert", 15, 20),
+    itemFactory.createItem(ItemType.PERISHABLE, "Backstage passes to a TAFKAL80ETC concert", 10, 49),
+    itemFactory.createItem(ItemType.PERISHABLE, "Backstage passes to a TAFKAL80ETC concert", 5, 49),
     // this conjured item does not work properly yet
-    new Item("Conjured Mana Cake", 3, 6)];
+    itemFactory.createItem(ItemType.CONJURED, "Conjured Mana Cake", 3, 6)
+];
 
 
 const gildedRose = new GildedRose(items);

@@ -1,12 +1,13 @@
 import { expect } from 'chai';
-import { Item, GildedRose } from '../app/gilded-rose';
+import { ItemFactory, ItemType, GildedRose } from '../app/gilded-rose';
 
 describe('Gilded Rose', function () {
 
     it('should foo', function() {
-        const gildedRose = new GildedRose([ new Item('foo', 0, 0) ]);
-        const items = gildedRose.updateQuality();
-        expect(items[0].name).to.equal('fixme');
+        const itemFactory = new ItemFactory()
+        const gildedRose = new GildedRose([ itemFactory.createItem(ItemType.COMMON, 'foo', 0, 0) ]);
+        gildedRose.updateQuality();
+        expect(gildedRose.items[0].name).to.equal('foo');
     });
 
 });
